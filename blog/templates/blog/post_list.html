@@ -3,10 +3,12 @@
         <title>Django Girls blog</title>
     </head>
     <body>
-        <div>
-            <p>published: 14.06.2019, 12:51</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Random bunch of text to put here.</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
